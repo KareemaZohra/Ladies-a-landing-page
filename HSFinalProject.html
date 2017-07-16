@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Final Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .menubar > ul {
+            list-style-type: none;
+            margin: 0;
+            height: 100%;
+            width: 75%;
+            overflow: hidden;
+            border: none;
+            margin-left: 10%;
+        }
+
+        .menubar > ul li {           /* refers li inside ul of element with class 'menubar' */
+            float: left;
+            padding-top: 10px;
+        }
+
+        div.menubar > ul li a {      /* refers a inside li inside ul */
+            background-color: white;
+            color: gray;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+        input{
+            width: 200px;
+            height: 100%;
+            float: right;
+            padding: 10px;
+            background-color: gainsboro;
+            background-image: url("img/search.png");
+        }
+
+        * {box-sizing:border-box}
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 60%;
+            max-height: 20%;
+            position: relative;
+            margin: auto;
+            padding-top: 30px;
+        }
+        .trans{
+            width: 100%;
+            height: 100px;
+            margin-top: -102px;
+            padding: 20px;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .mySlides {
+            display: inline-block;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor:pointer;
+            height: 13px;
+            width: 13px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        .PhotoGallery, .news, .inside{
+            width: 1000px;
+            height: 400px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        footer{
+            width: 100%;
+            height: 400px;
+            margin: auto;
+            padding: 20px;
+        }
+        .story{
+            height: 30%;
+            width: 100%;
+            color: black;
+        }
+        .story > div img{
+            float: left;
+        }
+        .story > div textarea{
+            float: left; border: none; height: 75px; width: 75%; font-family: Arial; font-size: small;
+            color: darkslategray;
+        }
+        .foottext{
+            background-color: #cccccc;
+            color: darkslategray;
+            width: 100%;
+            height: 100%;
+            border: none;
+            font-family: Arial;
+            font-size: small;
+        }
+        .footdiv{
+            float: left;
+            width: 30%;
+            height: 80%;
+            border: none;
+            margin-right: 3%;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 20px;
+            width: 60px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1px 2px;
+            border-radius: 50%;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+             background: #3B5998;
+             color: white;
+         }
+        .fa-twitter {
+            background: deepskyblue;
+            color: white;
+        }
+        .fa-google {
+            background: red;
+            color: white;
+        }
+        .line{
+            display:block;
+            border:none;
+            color:white;
+            height:1px;
+            background: darkgrey;
+            background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 600, from(#000), to(#fff));
+        }
+
+    </style>
+
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+
+</head>
+
+
+<body>
+
+<h1 style="text-align: center; font-family: 'Comic Sans MS'; style="color: gray">L<i style="color: darkorange">a</i>dies</h1>
+<h5 style="color: darkgrey; text-align: center">SIMPLE WORDPRESS THEME</h5>
+
+<hr class="line">
+<div class="menubar" >
+    <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#news">BLOG</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">PORTFOLIO</a></li>
+        <li><a href="#contact">GALLERY</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+        <form>
+            <input type="text" name="search" placeholder="search..."> </input>
+        </form>
+    </ul>
+</div>
+<hr class="line">
+
+<div class="slideshow-container">
+    <div class="mySlides fade">
+        <img src="img/big.jpg" style="width: 100%;" >
+        <div class="trans"> When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health. If you like to follow a strict diet plan, go for it. If not, it's OK. "Find what works for you."
+
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/beautiful.jpg" style="width: 100%;">
+        <div class="trans"> When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health. If you like to follow a strict diet plan, go for it. If not, it's OK. "Find what works for you."
+
+        </div>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="img/sea.jpg" style="width: 100%;">
+        <div class="trans"> When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health. If you like to follow a strict diet plan, go for it. If not, it's OK. "Find what works for you."
+
+        </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div style="font-family: 'Comic Sans MS'; border: 1px solid gray; border-radius: 25px; margin: auto; margin-left: 15%; text-align: center; width: 70%; "> This is a website about women. You can have heauty , health and life-style tips from it. Stay connected, stay advanced :)Tricia Montgomery, 52, the founder of K9 Fit Club, knows first-hand how the right diet and lifestyle can help. For her, choosing healthy foods and planning small, frequent meals works well. "I don't deny myself anything," .
+</div>
+
+<div>
+    <h2 style="color: darkorange; float: left; margin-left: 200px">Recent &nbsp</h2><h2 style="color: #555555; float: left">Work</h2>
+</div>
+
+<br><br><br><br>
+<div class="PhotoGallery">
+    <img src="img/index1.jpg" height="200px" width="25%" style="float:left">
+    <img src="img/index2.jpg" height="200px" width="25%" style="float:left">
+    <img src="img/index3.jpg" height="200px" width="25%" style="float:left">
+    <img src="img/index4.jpg" height="200px" width="25%" style="float:left">
+    <img src="img/index5.jpg" height="200px" width="25%px" style="float:left">
+    <img src="img/images6.jpg" height="200px" width="25%px" style="float:left">
+    <img src="img/images7.jpg" height="200px" width="25%px" style="float:left">
+    <img src="img/images8.jpg" height="200px" width="25%px" style="float:left">
+</div>
+
+
+<hr class="line" style="margin-top: 60px;">
+
+<div class="news">
+
+    <div style=" float: left; width: 40%; height: 80%; border: none;">
+
+    <div>
+        <h2 style="color: darkorange; float: left;">More &nbsp</h2><h2 style="color: #555555; float: left">About Author</h2>
+        <br><br><br><br>
+    </div>
+
+    <textarea style="color: #888888; width: 100%; height: 100%; border: none; font-family: Arial;  text-align: justify; text-justify: distribute;">
+        When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health. If you like to follow a strict diet plan, go for it. If not, it's OK. "Find what works for you."
+
+    Tricia Montgomery, 52, the founder of K9 Fit Club, knows first-hand how the right diet and lifestyle can help. For her, choosing healthy foods and planning small, frequent meals works well. "I don't deny myself anything," she says. "I still have dessert -- key lime pie, yum! -- and I love frozen gummy bears, but moderation is key."
+    </textarea>
+        <button type="button" style="padding: 10px; float: right; margin-bottom: 20px;">  Read >>  </button>
+
+    </div>
+
+    <div style=" float: right; width: 40%; height: 80%; border: none;">
+
+        <div>
+            <h2 style="color: darkorange; float: left;">Recent &nbsp</h2><h2 style="color: #555555; float: left">Blog Post</h2>
+            <br><br><br><br>
+        </div>
+
+       <div class="story">
+           <div>
+           <img src="img/index4.jpg" height="75px" width="20%" style="float: left">
+
+           <textarea style="float: left; border: none; height: 75px; width: 75%; font-family: Arial; font-size: small;" >
+               When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health.
+           </textarea>
+           </div>
+
+       </div>
+
+        <div class="story">
+            <div>
+                <img src="img/index3.jpg" height="75px" width="20%" style="float: left">
+
+                <textarea style="float: left; border: none; height: 75px; width: 75%; font-family: Arial; font-size: small;" >
+               When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health.
+           </textarea>
+            </div>
+
+        </div>
+
+        <div class="story">
+            <div>
+                <img src="img/images6.jpg" height="75px" width="20%">
+
+                <textarea style="float: left; border: none; height: 75px; width: 75%; font-family: Arial; font-size: small;" >
+               When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health.
+           </textarea>
+            </div>
+
+        </div>
+
+        <button type="button" style="padding: 10px; float: right; margin-bottom: 20px;">  Read >>  </button>
+
+    </div>
+</div>
+<br><br><br><br>
+
+<footer style="background-color: #cccccc; border-top: 2px solid gray;">
+    <div class="inside">
+
+    <div class="footdiv">
+        <h3 style="color: darkslategray;">Social</h3>
+        <textarea class="foottext">
+        When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health."
+           </textarea>
+
+    </div>
+
+    <div class="footdiv">
+        <h3 style="color: darkslategray;">Information</h3>
+        <textarea class="foottext">
+        When eating healthy, flexibility often works best, says Joyce Meng, MD, assistant professor at the Pat and Jim Calhoun Cardiology Center at UConn Health. If you like to follow a strict diet plan, go for it. If not, it's OK. "Find what works for you."
+           </textarea>
+
+    </div>
+
+    <div class="footdiv">
+        <h3 style="color: darkslategray;">&nbsp &nbsp &nbsp Search By</h3>
+        <div style="width: 40%; height: 80%; float: left">
+            <ul class="foot" style="list-style-type: none; color: darkslategray;">
+                <li> link 1 (3)</li>
+                <li> link 2 (15)</li>
+                <li> link 3 (13)</li>
+                <li> link 4 (10)</li>
+                <li> link 5 (1)</li>
+                <li> link 6 (0)</li>
+                <li> link 7 (3)</li>
+                <li> link 8 (2)</li>
+
+            </ul>
+
+        </div>
+
+        <div style="width: 40%; height: 80%; border: none; float: left">
+            <ul class="foot" style="list-style-type: none; color: darkslategray;">
+                <li> link 1 (3)</li>
+                <li> link 2 (15)</li>
+                <li> link 3 (13)</li>
+                <li> link 4 (10)</li>
+                <li> link 5 (1)</li>
+                <li> link 6 (0)</li>
+                <li> link 7 (3)</li>
+                <li> link 8 (2)</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <a href="#" class="fa fa-facebook" style=" "></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    </div>
+
+</footer>
+
+<div style="padding: 20px; margin-left: 70%">
+    Developed by Kareema Zohra
+</div>
+
+</body>
+
+
+</html>
